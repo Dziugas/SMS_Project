@@ -1,0 +1,10 @@
+{% if all_sms %}
+    <h3>Here are all the SMS</h3>
+    <ul>
+        {% for sms in all_sms %}
+        <li><a href="{% url 'music:detail' sms.id %}">{{sms.date}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>You don't have any albums</h3>
+{% endif %}
