@@ -2,7 +2,7 @@
     <h3>Here are all the SMS</h3>
     <ul>
         {% for sms in all_sms %}
-        <li><a href="{% url 'music:detail' sms.id %}">{{sms.date}}</a></li>
+        <li><a href="{% url 'main:detail' sms.id %}">{{sms.date}}</a></li>
         {% endfor %}
     </ul>
 {% else %}
