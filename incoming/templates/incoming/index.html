@@ -1,1 +1,5 @@
-<h1>Atejo requestas! </h1>
+<ol>
+    {% for message in resources %}
+    <li>{{message.body}}</li>
+    {% endfor %}
+</ol>
