@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from.models import SmsContent
+from.models import Notes
 
-admin.site.register(SmsContent)
+admin.site.register(Notes)

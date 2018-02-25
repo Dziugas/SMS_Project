@@ -1,6 +1,6 @@
 from django.db import models
 
-class SmsContent(models.Model):
+class Notes(models.Model):
     text = models.TextField()
     date = models.DateTimeField()
 
