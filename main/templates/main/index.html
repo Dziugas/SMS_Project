@@ -1,10 +1,10 @@
-{% if all_sms %}
-    <h3>Here are all the notes you've entered through the desktop</h3>
-    <ul>
-        {% for note in all_notes %}
-        <li><a href="{% url 'main:detail' note.id %}">{{note.date}}</a></li>
-        {% endfor %}
-    </ul>
+{% if all_notes %}
+<h3>Notes from computer</h3>
+<ul>
+    {% for note in all_notes %}
+    <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
+    {% endfor %}
+</ul>
 {% else %}
-    <h3>You don't have any notes</h3>
+    <p>no notes</p>
 {% endif %}

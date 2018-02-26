@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'sms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'daily_notes',
+        'USER' : 'postgres',
+        'PASSWORD' : '29918056',
+        'HOST' : 'localhost',
+        'PORT' : '',
     }
 }
 
