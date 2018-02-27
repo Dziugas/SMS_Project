@@ -11,6 +11,6 @@ urlpatterns = [
     #main/22/
     url(r'^note/(?P<note_id>[0-9]+)/$', views.detail, name='detail'),
 
-    #delete
+    # delete
     url(r'^note/(?P<note_id>[0-9]+)/detail/$', views.delete_note, name='delete')
 ]
