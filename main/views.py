@@ -1,11 +1,18 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from .models import Notes
 from .forms import NoteForm
 
 
 def index(request):
     all_notes = Notes.objects.all()
-    form = NoteForm
+    if request.method == "POST":
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.author = request.user
+            note.save()
+    else:
+        form = NoteForm()
     return render(request, 'main/index.html', {'all_notes' : all_notes, 'form' : form})
 
 
