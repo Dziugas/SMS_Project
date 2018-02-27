@@ -19,7 +19,8 @@ def index(request):
 
 def detail(request, note_id):
     note = Notes.objects.get(pk=note_id)
-    return render(request, 'main/detail.html', {'note' : note})
+    form = DeleteNote()
+    return render(request, 'main/detail.html', {'note' : note, 'form' : form})
 
 
 def delete_note(request, note_id):

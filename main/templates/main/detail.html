@@ -4,7 +4,7 @@
 <br>
 <div>Date: {{note.date}}</div>
 <br>
-<form method="post" enctype="multipart/form-data">
+<form action="delete" method="post">
     {% csrf_token %}
-    <a href="detail">Delete</a>
+    <button type="submit">Delete</button>
 </form>
