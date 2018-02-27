@@ -5,10 +5,11 @@
 </form>
 <div class="container">
     {% if all_notes %}
-    <h3>Notes from computer</h3>
+    <h3>All notes from computer</h3>
     <ul>
         {% for note in all_notes %}
         <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
+        <p>{{note.date}}</p>
         {% endfor %}
     </ul>
     {% else %}

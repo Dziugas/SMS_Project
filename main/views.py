@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Notes
-from .forms import NoteForm
+from .forms import NoteForm, DeleteNote
 
 
 def index(request):
-    all_notes = Notes.objects.all()
+    all_notes = Notes.objects.all().order_by('-date')
     if request.method == "POST":
         form = NoteForm(request.POST)
         if form.is_valid():
@@ -20,3 +20,15 @@ def index(request):
 def detail(request, note_id):
     note = Notes.objects.get(pk=note_id)
     return render(request, 'main/detail.html', {'note' : note})
+
+
+def delete_note(request, note_id):
+    note_to_delete = get_object_or_404(Notes, id=note_id)
+    if request.method == 'POST':
+        form = DeleteNote(request.POST, instance=note_to_delete)
+        if form.is_valid():
+            note_to_delete.delete()
+            return redirect('main:index')
+    else:
+        form = DeleteNote(instance=note_to_delete)
+    return render(request, 'main/index.html', {'form' : form})

@@ -1,5 +1,10 @@
-<div>Note id: {{note.id}}</div>
+<h1>{{note.title}}</h1>
+<br>
+<div>{{note.text}}</div>
 <br>
 <div>Date: {{note.date}}</div>
 <br>
-<div>Text: {{note.text}}</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <a href="detail">Delete</a>
+</form>
