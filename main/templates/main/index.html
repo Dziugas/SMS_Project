@@ -1,10 +1,19 @@
-{% if all_notes %}
-<h3>Notes from computer</h3>
-<ul>
-    {% for note in all_notes %}
-    <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
+<div class="container">
+    {% if all_notes %}
+    <h3>Notes from computer</h3>
+    <ul>
+        {% for note in all_notes %}
+        <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
     <p>no notes</p>
-{% endif %}
+    {% endif %}
+</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enter</button>
+</form>
+
+
