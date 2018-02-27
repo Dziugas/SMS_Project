@@ -11,6 +11,7 @@ def index(request):
             note = form.save(commit=False)
             note.author = request.user
             note.save()
+            return redirect('main:detail', note.id)
     else:
         form = NoteForm()
     return render(request, 'main/index.html', {'all_notes' : all_notes, 'form' : form})

@@ -1,3 +1,8 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enter</button>
+</form>
 <div class="container">
     {% if all_notes %}
     <h3>Notes from computer</h3>
@@ -10,10 +15,6 @@
     <p>no notes</p>
     {% endif %}
 </div>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enter</button>
-</form>
+
 
 
