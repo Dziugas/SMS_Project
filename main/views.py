@@ -31,7 +31,7 @@ def delete_note(request, note_id):
             note_to_delete.delete()
             return redirect('main:index')
     else:
-        form = DeleteNote(instance=note_to_delete)
+        return render(request, 'main/if_delete.html')
     return render(request, 'main/index.html', {'form' : form})
 
 def note_edit(request, note_id):
