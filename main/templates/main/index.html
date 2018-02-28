@@ -1,19 +1,30 @@
+<h1>Daily Notes</h1>
+    {% if not all_notes %}
+    <p>Currently you have no notes.</p>
+    {% endif %}
+<p>Please enter a note:</p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Enter</button>
 </form>
+
 <div class="container">
     {% if all_notes %}
-    <h3>All notes from computer</h3>
+    <h2>All your notes from the laptop:</h2>
     <ul>
         {% for note in all_notes %}
         <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
         <p>{{note.date}}</p>
+        <form action="note/{{note.id}}/delete" method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
         {% endfor %}
     </ul>
-    {% else %}
-    <p>no notes</p>
+
+
+
     {% endif %}
 </div>
 

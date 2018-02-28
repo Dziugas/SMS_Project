@@ -24,7 +24,7 @@ def detail(request, note_id):
 
 
 def delete_note(request, note_id):
-    note_to_delete = get_object_or_404(Notes, id=note_id)
+    note_to_delete = get_object_or_404(Notes, pk=note_id)
     if request.method == 'POST':
         form = DeleteNote(request.POST, instance=note_to_delete)
         if form.is_valid():
