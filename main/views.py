@@ -33,3 +33,16 @@ def delete_note(request, note_id):
     else:
         form = DeleteNote(instance=note_to_delete)
     return render(request, 'main/index.html', {'form' : form})
+
+def note_edit(request, note_id):
+    note = get_object_or_404(Notes, pk=note_id)
+    if request.method == 'POST':
+        form = NoteForm(request.POST, instance=note)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.save()
+            return redirect('main:detail', note_id)
+    else:
+        form = NoteForm(instance=note)
+    return render(request, 'main/index.html', {'form':form})
+

@@ -4,10 +4,22 @@
 <br>
 <div>Date: {{note.date}}</div>
 <br>
+
+<!--<form action="edit" method="post">-->
+    <!--{% csrf_token %}-->
+    <!--<button type="submit">Edit</button>-->
+<!--</form>-->
+
+
+<a class="" href="edit">Edit</a>
+
+
 <form action="delete" method="post">
     {% csrf_token %}
     <button type="submit">Delete</button>
 </form>
+
+
 <p>
     <a href="/">Back to the main page</a>
 </p>

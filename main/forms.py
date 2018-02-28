@@ -10,4 +10,3 @@ class DeleteNote(forms.ModelForm):
     class Meta:
         model = Notes
         fields = []
-

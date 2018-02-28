@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^note/(?P<note_id>[0-9]+)/$', views.detail, name='detail'),
 
     # delete
-    url(r'^note/(?P<note_id>[0-9]+)/delete$', views.delete_note, name='delete')
+    url(r'^note/(?P<note_id>[0-9]+)/delete$', views.delete_note, name='delete'),
+
+    url(r'^note/(?P<note_id>[0-9]+)/edit$', views.note_edit, name='note_edit'),
 ]
