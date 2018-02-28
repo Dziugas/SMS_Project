@@ -1,17 +1,19 @@
 <h1>Daily Notes</h1>
-    {% if not all_notes %}
-    <p>Currently you have no notes.</p>
-    {% endif %}
+
 <p>Please enter a note:</p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Enter</button>
+    <button type="submit">Save</button>
 </form>
 
+{% if number = 1 %}
+    <h3>Currently you have {{number}} note </h3>
+{% else %}
+    <h3>Currently you have {{number}} notes </h3>
+{% endif %}
+
 <div class="container">
-    {% if all_notes %}
-    <h2>All your notes from the laptop:</h2>
     <ul>
         {% for note in all_notes %}
         <li><a href="{% url 'main:detail' note.id %}">{{note.title}}</a></li>
@@ -22,10 +24,6 @@
         </form>
         {% endfor %}
     </ul>
-
-
-
-    {% endif %}
 </div>
 
 

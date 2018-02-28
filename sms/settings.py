@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'daily_notes',
         'USER' : 'postgres',
-        'PASSWORD' : '29918056',
+        'PASSWORD' : '1111111',
         'HOST' : 'localhost',
         'PORT' : '',
     }

@@ -14,14 +14,14 @@ def index(request):
             return redirect('main:detail', note.id)
     else:
         form = NoteForm()
-    return render(request, 'main/index.html', {'all_notes' : all_notes, 'form' : form})
-
+    number = Notes.objects.all().count()
+    modulus = number % 10
+    return render(request, 'main/index.html', {'all_notes' : all_notes, 'form' : form, 'number':number, 'modulus':modulus})
 
 def detail(request, note_id):
     note = Notes.objects.get(pk=note_id)
     form = DeleteNote()
     return render(request, 'main/detail.html', {'note' : note, 'form' : form})
-
 
 def delete_note(request, note_id):
     note_to_delete = get_object_or_404(Notes, pk=note_id)
@@ -45,4 +45,3 @@ def note_edit(request, note_id):
     else:
         form = NoteForm(instance=note)
     return render(request, 'main/index.html', {'form':form})
-
